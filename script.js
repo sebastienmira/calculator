@@ -61,7 +61,11 @@ buttons.map((button)=> button.addEventListener(('click'), ()=>{
       display.textContent=toDisplay
       values=[]
     }
-
+  }
+  if(button.classList[0]=='clearButton'){
+    values=[]
+    toDisplay=''
+    display.textContent=''
   }
 }))
 
