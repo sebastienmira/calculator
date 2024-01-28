@@ -15,7 +15,7 @@ let aValue
 let bValue
 let operator
 
-function operate(operator,aValue,bValue){
+function operate(aValue,operator,bValue){
   switch(operator){
     case '+':
       return add(aValue,bValue)
@@ -23,7 +23,7 @@ function operate(operator,aValue,bValue){
       return subtract(aValue,bValue)
     case '/':
       return divide(aValue,bValue)
-    case '*':
+    case 'x':
       return multiply(aValue,bValue)
   }
 }
@@ -31,10 +31,28 @@ function operate(operator,aValue,bValue){
 const display=document.querySelector('#display')
 let buttons=Array.from(document.querySelectorAll('button'))
 let toDisplay=''
+let values=[]
 
 buttons.map((button)=> button.addEventListener(('click'), ()=>{
-  toDisplay=toDisplay+button.textContent
-  display.textContent=toDisplay
+  if (button.classList[0]=='numberButton'){
+    toDisplay=toDisplay+button.textContent
+    display.textContent=toDisplay
+  }
+  if(button.classList[0]=='operatorButton'){
+    values.push(toDisplay)
+    toDisplay=''
+    display.textContent=button.textContent
+    values.push(button.textContent)
+  }
+  if(button.classList[0]=='equalButton'){
+    if (toDisplay!=''){
+      values.push(toDisplay)
+      toDisplay=''+ operate(+values[0],values[1],+values[2])
+      display.textContent=toDisplay
+      values=[]
+    }
+
+  }
 }))
 
 
