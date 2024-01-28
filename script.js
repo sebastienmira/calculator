@@ -39,10 +39,20 @@ buttons.map((button)=> button.addEventListener(('click'), ()=>{
     display.textContent=toDisplay
   }
   if(button.classList[0]=='operatorButton'){
-    values.push(toDisplay)
-    toDisplay=''
-    display.textContent=button.textContent
-    values.push(button.textContent)
+    if(toDisplay!=''){
+      values.push(toDisplay)
+      if (values.length==1){
+        toDisplay=''
+        display.textContent=button.textContent
+        values.push(button.textContent)
+        }
+      if (values.length==3){
+        values=[''+ operate(+values[0],values[1],+values[2])]
+        toDisplay=''
+        display.textContent=button.textContent
+        values.push(button.textContent)
+      }
+    }
   }
   if(button.classList[0]=='equalButton'){
     if (toDisplay!=''){

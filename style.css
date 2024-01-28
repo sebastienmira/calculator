@@ -39,7 +39,7 @@
   gap:10px;
 }
 
-.numberButton, .operatorButton, .equalButton{
+.numberButton, .operatorButton, .equalButton, .clearButton{
   display: flex;
   align-items: center;
   justify-content: center;
