@@ -22,7 +22,10 @@ function operate(aValue,operator,bValue){
     case '-':
       return subtract(aValue,bValue)
     case '/':
-      return divide(aValue,bValue)
+      if(bValue!=0){
+        return divide(aValue,bValue)
+      }
+      else{return 'Division by 0'}
     case 'x':
       return multiply(aValue,bValue)
   }
@@ -57,9 +60,14 @@ buttons.map((button)=> button.addEventListener(('click'), ()=>{
   if(button.classList[0]=='equalButton'){
     if (toDisplay!=''){
       values.push(toDisplay)
-      toDisplay=''+ operate(+values[0],values[1],+values[2])
-      display.textContent=toDisplay
-      values=[]
+      if(values.length==3){
+        toDisplay=''+ operate(+values[0],values[1],+values[2])
+        display.textContent=toDisplay
+        values=[]
+      }
+      else{
+        return "press C somethingwent wrong"
+      }
     }
   }
   if(button.classList[0]=='clearButton'){
