@@ -1,0 +1,49 @@
+#container{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(5, 5, 32);
+  padding: 30px;
+  width:350px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+#display{
+  display: flex;
+  background-color: rgb(91, 115, 151);
+  width: 300px;
+  padding:30px;
+  height: 0px;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: end;
+  font-size: 30px;
+}
+
+#keyboard{
+  display: flex;
+  flex-direction: row;
+}
+
+#numberContainer{
+  display: flex;
+  flex-wrap: wrap;
+  gap:10px;
+}
+
+#operatorContainer{
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.numberButton, .operatorButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height:50px;
+
+}
